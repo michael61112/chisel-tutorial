@@ -115,3 +115,11 @@ section of the [website](https://chisel.eecs.berkeley.edu/).
 Fixes/Updates
 -------------
 If you wish to submit pull requests for changes to this repo, plus check out the master branch, and make your pull requests against that branch.
+
+#### Get Start
+Generate Design of Mux2
+    ## sbt 'runMain <TOP_PACKAGE>.<TOP_MODULE> -td ./generated/<MODULE_NAME>'
+    $ sbt 'runMain top.Mux2Top -td ./generated/Mux2'
+Test Esign of Mux2Test
+    ## sbt 'Test/runMain <PACKAGE_NAME>.<TESTER_NAME> -td <DIR_NAME> -tbn verilator'
+    $ sbt 'Test/runMain Happy.Mux2Test -td ./generated -tbn verilator'
