@@ -137,3 +137,14 @@ Module Hierarchy
 
     sbt 'Test/runMain Happy.FullAdderTest -td ./generated -tbn verilator'
 
+#### Lab2: RCAdder
+When the circuit has high repeatability and the specifications are uncertain, you can wait until synthesis and then decide by passing in parameters.
+
+##### Generate Design
+
+    ./build.sh Happy RCAdder 32
+
+##### Test Design
+
+    sbt 'Test/runMain Happy.RCAdderTest -td ./generated -tbn verilator'
+

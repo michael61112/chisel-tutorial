@@ -5,6 +5,8 @@ set -e
 
 package="$1"
 module="$2"
+parameters="$3"
+
 if [ -z "$module" ]; then
 	echo "Usage: ./build.sh <package> <module>"
 	echo "For example, gcd.GCD can be elaborated using ./build.sh gcd GCD"
@@ -17,7 +19,7 @@ import ${package}._
 
 object Elaborate extends App {
   (new chisel3.stage.ChiselStage).emitVerilog(
-    new ${package}.${module}(args),
+    new ${module}($parameters),
     Array("-td","generated/${package}")
   )
 }
