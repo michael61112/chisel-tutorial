@@ -126,3 +126,14 @@ Test Esign of Mux2Test
 
     ## sbt 'Test/runMain <PACKAGE_NAME>.<TESTER_NAME> -td <DIR_NAME> -tbn verilator'
     $ sbt 'Test/runMain Happy.Mux2Test -td ./generated -tbn verilator'
+
+#### Lab1: FullAdder
+Module Hierarchy
+##### Generate Design
+
+    ./build.sh Happy FullAdder
+
+##### Test Design
+
+    sbt 'Test/runMain Happy.FullAdderTest -td ./generated -tbn verilator'
+
