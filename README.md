@@ -127,24 +127,39 @@ Test Esign of Mux2Test
     ## sbt 'Test/runMain <PACKAGE_NAME>.<TESTER_NAME> -td <DIR_NAME> -tbn verilator'
     $ sbt 'Test/runMain Happy.Mux2Test -td ./generated -tbn verilator'
 
-#### Lab1: FullAdder
+MyWork
+------
+### Lab1: FullAdder
 Module Hierarchy
-##### Generate Design
+#### Generate Design
 
     ./build.sh Happy FullAdder
 
-##### Test Design
+#### Test Design
 
     sbt 'Test/runMain Happy.FullAdderTest -td ./generated -tbn verilator'
 
-#### Lab2: RCAdder
+### Lab2: RCAdder
 When the circuit has high repeatability and the specifications are uncertain, you can wait until synthesis and then decide by passing in parameters.
 
-##### Generate Design
+#### Generate Design
 
     ./build.sh Happy RCAdder 32
 
-##### Test Design
+#### Test Design
 
     sbt 'Test/runMain Happy.RCAdderTest -td ./generated -tbn verilator'
 
+### Lab3: CLAdder
+The disadvantage of RCAdder is that the time it takes from the input data to the answer to generate the Cout of the last FAdder will be the longest and related to the number of bits (n).
+If the time it takes for a FAdder's Cout to be generated is t, then the last Cout after the series connection will take n*t time.
+By analyzing the input data in advance, we can calculate the Cin of each bit in advance, speed up the operation, and allow the addition of each bit to be performed at the same time without waiting for the Cout of the previous bit.
+Tradeoff: The later the carry, the more complicated its expansion will be. This is equivalent to exchanging space for time. It is not recommended to do too many bits, and you don’t want to expand all the time.
+
+#### Generate Design
+
+    ./build.sh Happy CLAdder
+
+#### Test Design
+
+    sbt 'Test/runMain Happy.CLAdderTest -td ./generated -tbn verilator'
